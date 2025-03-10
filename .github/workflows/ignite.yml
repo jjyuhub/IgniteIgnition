@@ -45,7 +45,7 @@ jobs:
     - name: Configure V8 build (Ignition only)
       run: |
         cd v8
-        gn gen out/ignition --args='is_debug=false v8_enable_turbofan=false v8_enable_sparkplug=false v8_enable_maglev=false is_component_build=true v8_monolithic=false v8_use_external_startup_data=false v8_enable_i18n_support=false target_cpu="x64"'
+        gn gen out/ignition --args='is_debug=false v8_enable_turbofan=false v8_enable_sparkplug=false v8_enable_maglev=false v8_enable_webassembly=false is_component_build=true v8_monolithic=false v8_use_external_startup_data=false v8_enable_i18n_support=false target_cpu="x64"'
     
     - name: Build V8 Ignition
       run: |
