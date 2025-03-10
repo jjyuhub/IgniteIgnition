@@ -50,7 +50,7 @@ jobs:
     - name: Build V8 Ignition
       run: |
         cd v8
-        ninja -C out/ignition v8_monolith
+        ninja -C out/ignition d8
     
     - name: Run Ignition unit tests
       run: |
