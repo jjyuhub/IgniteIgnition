@@ -50,22 +50,22 @@ jobs:
     - name: Build V8 Ignition
       run: |
         cd v8
-        ninja -C out/ignition d8
+        ninja -C out/ignition d8 unittests v8_unittests cctest
     
     - name: Run Ignition unit tests
       run: |
         cd v8
-        python3 tools/run-tests.py --outdir=out/ignition ignition unittests
+        python3 tools/run-tests.py --outdir=out/ignition unittests cctest --filter="*Ignition*"
 
     - name: Run Ignition integration tests
       run: |
         cd v8
-        python3 tools/run-tests.py --outdir=out/ignition ignition mjsunit/ignition
+        python3 tools/run-tests.py --outdir=out/ignition mjsunit --filter="ignition"
     
     - name: Run Ignition performance tests
       run: |
         cd v8
-        python3 tools/run-tests.py --outdir=out/ignition ignition benchmarks/ignition
+        python3 tools/run-tests.py --outdir=out/ignition benchmarks --filter="ignition"
     
     - name: Archive test results
       if: always()
